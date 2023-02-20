@@ -16,7 +16,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 #if !NETCOREAPP2_0
-    using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Http.Features;
 #endif
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
@@ -48,7 +48,7 @@ namespace Microsoft.AspNet.OData.Test.Abstraction
                 services.AddMvc();
 #else
                 services.AddMvc(options => options.EnableEndpointRouting = false)
-                    .AddNewtonsoftJson();  
+                    .AddNewtonsoftJson();
 #endif
 
                 services.AddOData();
