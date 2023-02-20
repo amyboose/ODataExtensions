@@ -69,7 +69,7 @@ namespace Microsoft.AspNet.OData.Routing
         {
             Contract.Assert(str != null);
 
-            string escape = Uri.EscapeUriString(str);
+            string escape = Uri.EscapeDataString(str);
             escape = escape.Replace("#", _escapedHashMark);
             escape = escape.Replace("?", _escapedQuestionMark);
             return escape;

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Microsoft.AspNetCore.OData.Test": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:59740;http://localhost:59741"
+    }
+  }
+}

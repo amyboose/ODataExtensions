@@ -5,11 +5,6 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Reflection;
 using Microsoft.AspNet.OData.Common;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNet.OData.Routing.Conventions;
@@ -22,6 +17,11 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Routing;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Linq;
+using System.Reflection;
 #if NETSTANDARD2_0
     using Microsoft.AspNetCore.Mvc.Internal;
     using Microsoft.Extensions.Logging;
@@ -194,7 +194,7 @@ namespace Microsoft.AspNet.OData.Routing
                     {
                         return bestCandidate.ActionDescriptor;
                     }
-                    
+
                     // also priorize actions that have the exact number of parameters as available keys
                     // this helps disambiguate between overloads of actions that implement actions
                     // e.g. DoSomething(int key) vs DoSomething(), if there are no availableKeys, the
@@ -376,6 +376,7 @@ namespace Microsoft.AspNet.OData.Routing
                 CacheToken = modelMetadata,
             };
 
+#pragma warning disable CS0618
             try
             {
                 IModelBinder binder = _modelBinderFactory.CreateBinder(binderContext);
@@ -386,6 +387,7 @@ namespace Microsoft.AspNet.OData.Routing
                     && !(binder is BinderTypeModelBinder));
             }
             catch { }
+#pragma warning restore CS0618
 
             return false;
         }

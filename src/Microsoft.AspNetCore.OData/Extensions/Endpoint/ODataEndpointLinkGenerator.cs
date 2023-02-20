@@ -6,12 +6,12 @@
 //------------------------------------------------------------------------------
 
 #if !NETSTANDARD2_0
-using System;
-using System.Collections.Generic;
 using Microsoft.AspNet.OData.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
 
 namespace Microsoft.AspNet.OData.Extensions
 {
@@ -151,7 +151,7 @@ namespace Microsoft.AspNet.OData.Extensions
 
         private static string UriEncode(string str)
         {
-            string escape = Uri.EscapeUriString(str);
+            string escape = Uri.EscapeDataString(str);
             escape = escape.Replace("#", _escapedHashMark);
             escape = escape.Replace("?", _escapedQuestionMark);
             return escape;
